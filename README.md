@@ -1,6 +1,6 @@
 # NewsApi Elixir client library
 
-Use the unofficial Elixir client library to integrate News API into your Ruby application without worrying about what's going on under the hood.
+Use the unofficial Elixir client library to integrate News API into your Elixir application without worrying about what's going on under the hood.
 
 Source: tommasop/news_api
 

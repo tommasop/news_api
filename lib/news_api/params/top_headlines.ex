@@ -68,4 +68,14 @@ defmodule TopHeadlines.Params do
           pageSize: integer,
           page: integer
         }
+
+  def check(params) do
+    case params do
+      %{country: _, sources: _} ->
+        {:error, "No country and sources together are allowed!"}
+
+      %{category: _, sources: _} ->
+        {:error, "No country and sources together are allowed!"}
+    end
+  end
 end

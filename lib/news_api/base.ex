@@ -29,39 +29,6 @@ defmodule NewsApi.Base do
     end
   end
 
-  @doc """
-  General HTTP `POST` request function. Takes a url part,
-  and optionally a api_key, and a data Map.
-  """
-  def post(url_part, api_key, data \\ %{}) do
-    body = Jason.encode!(data)
-
-    [url_part]
-    |> build_url
-    |> HTTPoison.post!(body, add_auth_header(api_key))
-    |> handle_response
-  end
-
-  def put(url_part, api_key, data \\ %{}) do
-    body = Jason.encode!(data)
-
-    [url_part]
-    |> build_url
-    |> HTTPoison.put!(body, add_auth_header(api_key))
-    |> handle_response
-  end
-
-  @doc """
-  General HTTP `DELETE` request function. Takes a url part
-  and optionally a api_key and list of params.
-  """
-  def delete(url_part, api_key, params \\ []) do
-    [url_part, params]
-    |> build_url
-    |> HTTPoison.delete!(add_auth_header(api_key))
-    |> handle_response
-  end
-
   defp handle_response(%HTTPoison.Response{status_code: 200, body: body}),
     do: {:ok, Jason.decode!(body)}
 

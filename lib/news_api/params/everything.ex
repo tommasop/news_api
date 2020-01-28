@@ -35,26 +35,26 @@ defmodule Everything.Params do
   def check(params) do
     case params do
       %{from: from, to: to} ->
-        case DateTime.from_iso8601(from) do
-          {:ok, _, _} ->
-            case DateTime.from_iso8601(to) do
-              {:ok, _, _} -> {:ok, params}
+        case Date.from_iso8601(from) do
+          {:ok, _} ->
+            case Date.from_iso8601(to) do
+              {:ok, _} -> {:ok, params}
               {:error, _} -> {:error, "Wrong date format!"}
             end
 
           {:error, _} ->
-            "Wrong date format!"
+            {:error, "Wrong date format!"}
         end
 
       %{from: from} ->
-        case DateTime.from_iso8601(from) do
-          {:ok, _, _} -> {:ok, params}
+        case Date.from_iso8601(from) do
+          {:ok, _} -> {:ok, params}
           {:error, _} -> {:error, "Wrong date format!"}
         end
 
       %{to: to} ->
-        case DateTime.from_iso8601(to) do
-          {:ok, _, _} -> {:ok, params}
+        case Date.from_iso8601(to) do
+          {:ok, _} -> {:ok, params}
           {:error, _} -> {:error, "Wrong date format!"}
         end
     end

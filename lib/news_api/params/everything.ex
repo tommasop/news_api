@@ -33,6 +33,16 @@ defmodule Everything.Params do
         }
 
   def check(params) do
+    params =
+      Enum.map(params, fn {k, v} ->
+        if Enum.member?([:q, :qInTitle], k) do
+          {k, URI.encode(v)}
+        else
+          {k, v}
+        end
+      end)
+      |> Enum.into(%{})
+
     case params do
       %{from: from, to: to} ->
         case Date.from_iso8601(from) do

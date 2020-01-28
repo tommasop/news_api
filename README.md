@@ -23,30 +23,24 @@ be found at [https://hexdocs.pm/news_api](https://hexdocs.pm/news_api).
 
 ## Usage
 
-require 'news-api'
-
-## Init
-
 ```
-newsapi = News.new("API_KEY")             
-
 # /v2/top-headlines
-top_headlines = newsapi.get_top_headlines(q: 'bitcoin',
-                                          sources: 'bbc-news,the-verge',
-                                          category: 'business',
-                                          language: 'en',
-                                          country: 'us')
+top_headlines = NewsApi.TopHeadlines.search(%{q: 'bitcoin',
+                                              sources: 'bbc-news,the-verge',
+                                              category: 'business',
+                                              language: 'en',
+                                              country: 'us'}, "your-api-key")
 
 # /v2/everything
-all_articles = newsapi.get_everything(q: 'bitcoin',
-                                      sources: 'bbc-news,the-verge',
-                                      domains: 'bbc.co.uk,techcrunch.com',
-                                      from: '2017-12-01',
-                                      to: '2017-12-12',
-                                      language: 'en',
-                                      sortBy: 'relevancy',
-                                      page: 2))
+all_articles = NewsApi.Everything.search(%{q: 'bitcoin',
+                                           sources: 'bbc-news,the-verge',
+                                           domains: 'bbc.co.uk,techcrunch.com',
+                                           from: '2017-12-01',
+                                           to: '2017-12-12',
+                                           language: 'en',
+                                           sortBy: 'relevancy',
+                                           page: 2}, "your-api-key")
 
 # /v2/sources
-sources = newsapi.get_sources(country: 'us', language: 'en')
+sources = NewsApi.Sources.all(%{country: 'us', language: 'en'}, "your-api-key")
 ```

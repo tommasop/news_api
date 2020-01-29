@@ -12,7 +12,7 @@ by adding `news_api` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:news_api, "~> 0.1.0"}
+    {:news_api_ex, "~> 0.1.0"}
   ]
 end
 ```

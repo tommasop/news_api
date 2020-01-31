@@ -11,14 +11,12 @@ The package can be installed by adding `news_api_ex` to your list of dependencie
 ```elixir
 def deps do
   [
-    {:news_api_ex, "~> 0.1.0"}
+    {:news_api_ex, "~> 0.2.0"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/news_api_ex](https://hexdocs.pm/news_api_ex).
+Documentation can be found at [https://hexdocs.pm/news_api_ex/api-reference.html](https://hexdocs.pm/news_api_ex/api-reference.html).
 
 ## Usage
 
